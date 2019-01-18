@@ -1,5 +1,5 @@
 import numpy as np
-from base import basic_layer
+from structure.base import basic_layer
 
 class loss_layer(basic_layer):
 
