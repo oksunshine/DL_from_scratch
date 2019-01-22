@@ -9,8 +9,9 @@ this is the repository for studying deep learning. I wrote this scripts using on
 - numpy
 
 ## Usage
-$ ipython -i main.py
-
+```python
+run main.py
+```
 ## contents list
 ### data
 There are data used for in this directory.
