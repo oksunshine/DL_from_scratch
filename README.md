@@ -1,6 +1,12 @@
 # DL_from_scratch
 
-this is the repository to study deep learning.
+this is the repository for studying deep learning. I wrote this scripts using only numpy (no framework).
+
+## Description
+
+## Requirements
+
+## Usage
 
 ## contents list
 ### data
