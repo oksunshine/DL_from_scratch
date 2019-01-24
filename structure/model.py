@@ -4,14 +4,16 @@ from structure.loss_layer import loss_layer
 
 class model:
 
-    def __init__(self, input_size, hidden_layer_shape, output_size, activ_func, grad_activ):
+    def __init__(self, batch_size, input_size, hidden_layer_shape, output_size, activ_func, grad_activ, lr):
 
+        self.batch_size = batch_size
         self.input_size = input_size
         self.output_size = output_size
         self.hidden_layer_shape = hidden_layer_shape
         self.hidden_layer_amount = len(hidden_layer_shape)
         self.activ_func = activ_func
         self.grad_activ = grad_activ
+        self.lr = lr
         self.build_model()
 
     def build_model(self):
@@ -24,14 +26,19 @@ class model:
 
         self.loss_layer = loss_layer(input_size=i_size, output_size=self.output_size)
 
-    def forward(self, x):
-        pass
+    def forward(self, x, label):
+
+        input = x
+        # hidden_layer
+        for l in range(self.hidden_layer_amount):
+            self.hidden_layer[l].forward(input)
+            input = self.hidden_layer[l].y.copy()
+
+        # loss_layer
+        self.loss_layer.forward(input, label)
 
     def backward(self, y):
         pass
 
     def predict(self):
-        pass
-
-    def dropout(self):
         pass
