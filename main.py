@@ -11,7 +11,9 @@ def train(model, train_data, label_data, epoch_size):
                 ## forward
                 model.forward(train_data, label_data)
                 ## backward
-                # model.backward()
+                model.backward()
+
+                ## init grad and delta
 
                 if i % 50 == 0 : print("hello")# show_loss_accuracy(loss, accuracy)
 
@@ -19,16 +21,12 @@ def train(model, train_data, label_data, epoch_size):
 
 
 #### define the data
-hp = hyperparameters(data_name="sin")
-del hyperparameters
+hp = hyperparameters(task_name="regr_sin")
 
 #### build the model
 neural_net = model(hp.batch_size, hp.input_size, hp.hidden_layers_shape, hp.correct_data_size, sigmoid, grad_sigmoid, hp.lr)
-del model, sigmoid, grad_sigmoid
 
-train_model = train(neural_net, hp.input_data, hp.correct_data, 5)
-#### test
-# neural_net.forward(hp.input_data)
+train_model = train(neural_net, hp.input_data, hp.correct_data, 100)
 
 #### train the model
 

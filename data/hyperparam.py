@@ -2,10 +2,12 @@ import numpy as np
 
 class hyperparameters:
 
-    def __init__(self, data_name="sin"):
+    def __init__(self, task_name="regr_sin"):
 
-        if data_name == 'sin':
+        if task_name == 'regr_sin':
             import data.sin_config as config
+        else:
+            assert False, "specified task name({}) is not found".format(task_name)
 
         self.input_data = config.input_data
         self.input_size = config.input_size

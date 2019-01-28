@@ -1,7 +1,7 @@
-"""
-    2019/1/24
-    @Author oksunshine
-"""
+# 2019/1/24
+# @Author oksunshine
+# Plot the trial log for each epoch
+
 import matplotlib.pyplot as plt
 def show_loss_accuracy(epoch_size, loss, accuracy):
 
@@ -10,3 +10,5 @@ def show_loss_accuracy(epoch_size, loss, accuracy):
     # plt.plot(x, loss, )
     # plt.legend()
     return loss, accuracy
+
+# Progress

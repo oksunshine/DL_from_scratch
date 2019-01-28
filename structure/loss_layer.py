@@ -8,19 +8,13 @@ class loss_layer(basic_layer):
 
     def forward(self, x, label):
 
-        # calculate u
         u = np.dot(x, self.w) + self.b
-        print(x.shape)
-        print(self.w.shape)
-        # calculate y
         self.y = u.copy()
-        # calculate the loss
         self.loss = 1.0 / 2.0 * (self.y - label)**2
-        print(self.loss.shape)
+        print("loss : {}".format(self.loss.mean()))
 
     def backward(self):
-        return self.y
-
-    def loss(self):
-        return 1
+        ### calculate the delta
+        ### calculate the
+        self.grad_y = None
 

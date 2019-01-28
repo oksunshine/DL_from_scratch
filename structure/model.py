@@ -29,16 +29,19 @@ class model:
     def forward(self, x, label):
 
         input = x
-        # hidden_layer
-        for l in range(self.hidden_layer_amount):
-            self.hidden_layer[l].forward(input)
-            input = self.hidden_layer[l].y.copy()
+        for i in range(self.hidden_layer_amount):
+            self.hidden_layer[i].forward(input)
+            input = self.hidden_layer[i].y.copy()
 
-        # loss_layer
         self.loss_layer.forward(input, label)
 
-    def backward(self, y):
-        pass
+    def backward(self):
+
+        self.loss_layer.backward()
+        grad_y = self.loss_layer.grad_y # gradient y in previous layer
+        for i in reversed(range(self.hidden_layer_amount)):
+            self.hidden_layer[i].backward(grad_y)
+            grad_y = self.hidden_layer[i].grad_y
 
     def predict(self):
         pass

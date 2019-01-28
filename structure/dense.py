@@ -11,9 +11,9 @@ class dense(basic_layer):
         self.grad_activation = grad_activ
 
     def forward(self, x):
+
         self.x = x
         u = np.dot(x, self.w) + self.b
-        print(u)
         self.y = self.activation_func(u)
 
     def backward(self):

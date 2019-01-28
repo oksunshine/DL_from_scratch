@@ -29,5 +29,9 @@ oksunshine
 MIT
 
 ## References
+- code reference
 https://github.com/maeotaku/numpy_neural_net
+- Xavier initialization
+http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf
+
 
