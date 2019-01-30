@@ -2,10 +2,11 @@ import numpy as np
 
 class basic_layer:
 
-    def __init__(self, input_size, output_size):
+    def __init__(self, input_size, output_size, lr):
 
         self.input_size = input_size
         self.output_size = output_size
+        self.lr = lr
         self.xavier_init()
 
     def xavier_init(self):
@@ -21,7 +22,7 @@ class basic_layer:
         # define the each layer
         pass
 
-    def update(self, lr):
+    def update(self, grad_w, grad_b):
         # lr means learning rate
-        self.w += lr * self.grad
-        self.b += lr * self.grad
+        self.w += self.lr * grad_w
+        self.b += self.lr * grad_b
