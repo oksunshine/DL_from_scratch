@@ -27,10 +27,9 @@ class loss_layer(basic_layer):
         delta = self.grad_loss(self.y, t) * self.grad_activation()
 
         self.grad_w = np.dot(self.x.T, delta)
-        self.grad_b = delta
+        self.grad_b = np.sum(delta, axis=0) # sum of loss in all batch
         self.grad_x = np.dot(delta, self.w.T)
 
         self.update(self.grad_w, self.grad_b)
 
-        ### update
 

@@ -18,11 +18,11 @@ class dense(basic_layer):
 
     def backward(self, grad_y):
 
-        delta = None
+        delta = grad_y * self.grad_activation(self.y)
 
-        self.grad_w = None
+        self.grad_w = np.dot(self.x.T, delta)
         self.grad_b = delta
-        self.grad_x = None
+        self.grad_x = np.dot(delta, self.w.T)
 
         self.update(self.w, self.b)
 

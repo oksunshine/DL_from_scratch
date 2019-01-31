@@ -6,7 +6,7 @@ from structure.functions import *
 class model:
 
     def __init__(self, batch_size, input_size, hidden_layer_shape, output_size,
-                 activ_func, grad_activ, activ_in_output, grad_activ_output, loss, lr):
+                 activ_func, grad_activ, activ_in_output, grad_activ_output, loss_type, lr):
 
         self.batch_size = batch_size
         self.input_size = input_size
@@ -17,7 +17,7 @@ class model:
         self.grad_activ = grad_activ
         self.activ_in_output = activ_in_output
         self.grad_activ_output = grad_activ_output
-        self.loss = loss
+        self.loss_type = loss_type
         self.lr = lr
         self.build_model()
 
@@ -29,7 +29,7 @@ class model:
             self.hidden_layer.append(dense(i_size, self.hidden_layer_shape[l], self.lr, self.activ_func, self.grad_activ))
             i_size = self.hidden_layer_shape[l]
 
-        self.loss_layer = loss_layer(i_size, self.output_size, self.lr, identify_func, grad_identify, loss=self.loss)
+        self.loss_layer = loss_layer(i_size, self.output_size, self.lr, identify_func, grad_identify, loss=self.loss_type)
 
     def forward(self, x, t):
 
