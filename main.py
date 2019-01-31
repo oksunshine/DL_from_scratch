@@ -37,7 +37,7 @@ neural_net = model(batch_size = hp.batch_size,
                    loss_type="mse",
                    lr=hp.lr)
 
-train_model = train(neural_net, hp.input_data, hp.correct_data, 50)
+train_model = train(neural_net, hp.input_data, hp.correct_data, hp.epoch_size)
 
 #### train the model
 

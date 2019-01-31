@@ -9,4 +9,4 @@ input_data = ((input_data-np.pi) / np.pi) # convert the range of input data (-1.
 hidden_layers_shape = [3]
 
 lr = 0.005
-epoch_size = 100
+epoch_size = 200

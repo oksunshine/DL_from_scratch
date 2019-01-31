@@ -49,5 +49,9 @@ class model:
             self.hidden_layer[i].backward(grad_y)
             grad_y = self.hidden_layer[i].grad_x
 
-    def predict(self):
+    def predict(self, x):
+        pass
+
+    def loss(t):
+        # separate calculating loss to forward method
         pass
